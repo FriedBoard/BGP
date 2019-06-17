@@ -11,6 +11,9 @@ next_Hop = 'fe80::215:5dff:fe14:7c05'
 # Set how many announcements you want per bgp.txt, this is to prevent a ExaBGP process from freezing
 announcement_Limit = 5000
 
+# Text file with bgp_table info
+bgp_table_txt = 'bgptable.txt'
+
 # Create and connect to an in-memory database and disk backed database
 conn = sqlite3.connect(':memory:')
 conn2 = sqlite3.connect('bgp_routes.db')
@@ -26,7 +29,7 @@ def create_Database():
     conn.execute('''CREATE TABLE route_Table (prefix text, path text, prefix_Length text, path_Length text)  ''')
 
     # Open the bgptable.txt file
-    bgp_Table = open('bgptable.txt', 'r')
+    bgp_Table = open(bgp_table_txt, 'r')
 
     # Create a list with a list for every row in it, sourced from: https://stackoverflow.com/questions/16922214/reading-a-text-file-and-splitting-it-into-single-words-in-python
     bgp_Table_List = [row.split() for row in bgp_Table]
