@@ -13,5 +13,8 @@ route_{number}.py contains examples of processes that can be used to insert the 
 
 exabgp.conf contains an example of the exabgp configuration to run multiple processes.
 
+### Side note for exabgp.conf
+Make sure you use group-updates in the neighbor configuration. If this is not set announcements will be send as independent bgp update messages/packets. When group-updates is set and supported by the receiving end multiple bgp updates are put in one packet improving efficiency.
+
 ## Sources:
 The routes found in route_x.py are sourced from: http://bgp.potaroo.net/v6/as6447/bgptable.txt this data was used for testing as well.
