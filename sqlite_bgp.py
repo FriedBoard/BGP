@@ -13,7 +13,7 @@ announcement_Limit = 5000
 
 # Create and connect to an in-memory database and disk backed database
 conn = sqlite3.connect(':memory:')
-conn2 = sqlite3.connect('bgp2.db')
+conn2 = sqlite3.connect('bgp_routes.db')
 
 # Function to create the bgp.db sqlite database with table bgp_Table (All paths) and route_Table (Best paths)
 def create_Database():
